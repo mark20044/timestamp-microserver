@@ -1,7 +1,6 @@
 module.exports = (param, callback) => {
 
-  var url = require("url");
-  var date = new Date(param);
+  var date = new Date(decodeURI(param));
 
   var unixTime = param != "Invalid Date" ? date.getTime() : null; 
   var naturalTime = param != "Invalid Date"? date : null;

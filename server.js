@@ -39,7 +39,12 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
-app.get('/time/:time', function(req, res))
+app.get('/:time', function(req, res) { 
+  timestamp(req.params.time, (err, data) => {
+    if (err) throw err;
+    res.send(data);
+  })
+})
 
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
