@@ -6,6 +6,7 @@
 'use strict';
 
 var fs = require('fs');
+var timestamp = require('./timestamp.js');
 var express = require('express');
 var app = express();
 
@@ -37,6 +38,8 @@ app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
+
+app.get('/time/:time', function(req, res))
 
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
